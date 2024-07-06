@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.restbook.restbookapis.entities.Book;
@@ -27,7 +26,12 @@ public class BookService {
     }
 
     public Book getBook(int id) {
-        Book book = myList.stream().filter(e -> e.getId() == id).findFirst().get();
+        Book book = null;
+        try {
+            book = myList.stream().filter(e -> e.getId() == id).findFirst().get();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         /*
          * for (Book book : myList) {
