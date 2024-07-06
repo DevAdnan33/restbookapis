@@ -5,14 +5,11 @@ public class Book {
     private int id;
     private String name;
     private String author;
-    private String msg;
-
+   
     public Book() {
     }
 
-    public Book(String msg) {
-        this.msg = msg;
-    }
+   
 
     public Book(int id, String name, String author) {
         this.id = id;
@@ -44,13 +41,7 @@ public class Book {
         this.author = author;
     }
 
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
+    
 
     @Override
     public String toString() {
