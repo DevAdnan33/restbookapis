@@ -3,8 +3,10 @@ package com.restbook.restbookapis.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.service.annotation.PostExchange;
@@ -32,5 +34,15 @@ public class BookController {
     @PostExchange("/books")
     public BookResponse addBook(@RequestBody Book book) {
         return bookService.addBook(book);
+    }
+
+    @DeleteMapping("/books/{id}")
+    public BookResponse removeBook(@PathVariable int id) {
+        return bookService.removeBook(id);
+    }
+
+    @PutMapping("/books/{bookId}")
+    public BookResponse updateBook(@RequestBody Book book, @PathVariable int bookId){
+        return bookService.updateBook(book, bookId);
     }
 }
