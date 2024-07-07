@@ -1,15 +1,21 @@
 package com.restbook.restbookapis.entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="books")
 public class Book {
 
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
     private String name;
     private String author;
    
     public Book() {
     }
-
-   
 
     public Book(int id, String name, String author) {
         this.id = id;
