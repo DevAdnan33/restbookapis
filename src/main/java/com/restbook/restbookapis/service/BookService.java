@@ -26,7 +26,7 @@ public class BookService {
             // book = myList.stream().filter(e -> e.getId() == id).findFirst().get();
             book = bookRep.findById(id);
         } catch (Exception e) {
-            e.printStackTrace();
+            e.getMessage();
         }
 
         /*
@@ -43,7 +43,7 @@ public class BookService {
     public BookResponse addBook(Book book) {
         // myList.add(new Book(book.getId(), book.getName(), book.getAuthor()));
         bookRep.save(book);
-        return new BookResponse("Added Successfully", true);
+        return new BookResponse("Added Successfully");
     }
 
     public BookResponse removeBook(int id) {
@@ -58,9 +58,9 @@ public class BookService {
             bookRep.deleteById(id);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            e.getMessage();
         }
-        return new BookResponse("No Id Found", false);
+        return new BookResponse("No Id Found");
     }
 
     public BookResponse updateBook(Book book, int bookId) {
@@ -81,7 +81,7 @@ public class BookService {
 
         book.setId(bookId);
         bookRep.save(book);
-        return new BookResponse("No Record Updated", false);
+        return new BookResponse("No Record Updated");
     }
 
 }

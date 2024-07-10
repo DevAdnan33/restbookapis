@@ -38,7 +38,7 @@ public class FileUploadControl {
                 return ResponseEntity.ok("File is Successfully uplaoded.");
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            e.getMessage();
         }
 
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Something went wrong");
