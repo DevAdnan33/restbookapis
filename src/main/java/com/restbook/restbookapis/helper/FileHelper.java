@@ -6,12 +6,20 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 @Component
 public class FileHelper {
-    public final String UPLOAD_DIR = "D:\\Spring Boot Projects\\restbookapis\\src\\main\\resources\\static\\image";
+    
+    public FileHelper() throws IOException {
+        
+    }
+
+    // public final String UPLOAD_DIR = "D:\\Spring Boot Projects\\restbookapis\\src\\main\\resources\\static\\image";
+    public final String UPLOAD_DIR = new ClassPathResource("static/image/").getFile().getAbsolutePath();
+
 
     public boolean uploadFile(MultipartFile multipartFile) {
         boolean f = false;
